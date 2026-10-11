@@ -11,6 +11,8 @@ import net.minheur.potoflux.logger.LogCategories;
 import net.minheur.potoflux.logger.PtfLogger;
 import net.minheur.keepFocus.defs.Tabs;
 import net.minheur.keepFocus.defs.FocusTranslations;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,11 +32,11 @@ public class KeepFocus {
         modEventBus.addListener(FocusStylesheets::register);
     }
 
-    private void onRegisterLang(RegisterLangEvent event) {
+    private void onRegisterLang(@NotNull RegisterLangEvent event) {
         event.registerLang(new FocusTranslations());
     }
 
-    public static Path getModDir() {
+    public static @NotNull Path getModDir() {
         Path dir = PotoFlux.getModDataDir().resolve(MOD_ID);
         try {
             Files.createDirectories(dir);
@@ -42,7 +44,7 @@ public class KeepFocus {
         return dir;
     }
 
-    public static String getVersion() {
+    public static @Nullable String getVersion() {
         try {
             Properties props = new Properties();
             props.load(KeepFocus.class.getResourceAsStream("/modVersion.properties"));
