@@ -1,4 +1,4 @@
-package net.minheur.keepFocus.save;
+package net.minheur.keepFocus.data;
 
 public class SaverHandler {
 

@@ -11,13 +11,16 @@ import javafx.util.Duration;
 import net.minheur.keepFocus.content.FocusController;
 import net.minheur.keepFocus.content.FocusSession;
 import net.minheur.keepFocus.content.FocusTimer;
+import net.minheur.keepFocus.data.SessionStage;
 import net.minheur.potoflux.translations.Translations;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 import static net.minheur.potoflux.Functions.formatMessage;
 
 public class TimerPane extends VBox {
-    private final FocusSession session;
+    private final List<SessionStage> sessions;
 
     private final Label
             task = new Label(),
